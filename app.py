@@ -39,7 +39,7 @@ app = create_app()
 @app.route('/comments/<company_id>/<post_id>', method=['GET'])
 def index(company_id, post_id):
     print(company_id, post_id)
-    return jsonify(dummy_data), 200
+    return jsonify(dummy_data)
 
 
 if __name__ == '__main__':
