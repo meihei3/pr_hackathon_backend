@@ -1,6 +1,6 @@
 from flask import Flask
 from controllers.CommentsController import CommentController
-# import models as db
+from db import init_db
 
 
 # init flask app
@@ -8,8 +8,7 @@ def create_app():
     _app = Flask(__name__)
     _app.config.from_object('config.Config')
 
-    # Todo: db
-    # db.init_db(_app)
+    init_db(_app)
 
     return _app
 
