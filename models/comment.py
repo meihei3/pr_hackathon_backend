@@ -18,17 +18,22 @@ class Comment(db.Model):
     post_id= db.Column(db.Integer)
     name = db.Column(db.String(80))
     text=db.Column(db.String())
-    posted_at=db.Column(db.Datetime, default=datetime.datetime.now(pytz.timezone('Asia/Tokyo')))
+    posted_at=db.Column(db.Datetime)
 
     def to_dict(self):
         return dict(
             company_id=self.company_id ,
             post_id=self.post_id ,
             name=self.name ,
-            text=self.text
+            text=self.text,
+            poted_at=self.posted_at,
         )
-
     def __init__(self, name):
         self.name = name
+        self.company_id=company_id
+        self.post_id=post_id
+        self.name=name
+        self.text=text
+        self.posted_at=posted_at
     def __repr__(self):
         return '<Model {}>'.format(self.name)

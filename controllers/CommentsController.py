@@ -20,7 +20,7 @@ class CommentController(MethodView):
         """
         text = request.form["text"]
         name=request.form["name"]
-        datetime=datetime.datetime.now(pytz.timezone('Asia/Tokyo')
+        datetime=datetime.datetime.now(pytz.timezone('Asia/Tokyo'))
         c=Comment(company_id,post_id,name,text,datetime)
         db.session.add(c)
         db.session.commit()
