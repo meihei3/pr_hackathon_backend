@@ -1,6 +1,6 @@
 from flask import Flask, jsonify
 # from controllers.CommentsController import CommentController
-from db import init_db
+# from db import init_db
 
 
 dummy_data = {
@@ -26,7 +26,7 @@ def create_app():
     _app = Flask(__name__)
     _app.config.from_object('config.Config')
 
-    init_db(_app)
+    # init_db(_app)
 
     return _app
 
@@ -36,11 +36,11 @@ app = create_app()
 #                  view_func=CommentController.as_view('comment_controller'))
 
 
-@app.route('/comments/<company_id>/<post_id>')
+@app.route('/comments/<company_id>/<post_id>', method=['GET'])
 def index(company_id, post_id):
     print(company_id, post_id)
     return jsonify(dummy_data), 200
 
 
 if __name__ == '__main__':
-    app.run(host="0.0.0.0", port=85, debug=True, threaded=True)
+    app.run(host="0.0.0.0", port=8500, debug=True, threaded=True)
