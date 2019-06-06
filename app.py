@@ -36,7 +36,7 @@ app = create_app()
 #                  view_func=CommentController.as_view('comment_controller'))
 
 
-@app.route('/comments/<company_id>/<post_id>', method=['GET'])
+@app.route('/comments/<string:company_id>/<string:post_id>', method=['GET'])
 def index(company_id, post_id):
     print(company_id, post_id)
     return jsonify(dummy_data)
