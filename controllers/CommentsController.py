@@ -10,8 +10,8 @@ import pytz
 class CommentController(MethodView):
 
     def get(self, company_id, post_id):
-        comments = Comment.query.all().filter(post_id=post_id, company_id=company_id)
-        comments = [c.to_dict() for c in comments]
+        comments = db.session.query(Comment).filter_by(post_id=post_id).filter_by(company_id=company_id)
+        comments = [Comment.to_dict(c) for c in comments]
         return jsonify({"comments": comments})
 
     def post(self, company_id, post_id):

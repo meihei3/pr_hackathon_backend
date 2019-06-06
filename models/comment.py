@@ -1,19 +1,8 @@
 # coding: utf-8
 from db import db
-from flask import Flask, jsonify, request
-from flask_sqlalchemy import SQLAlchemy
-import datetime
-import pytz
-
-# app = Flask(__name__)
-# app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:postgres@localhost/postgres'
-# app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
-# db = SQLAlchemy(app)
 
 
 # Model
-
-
 class Comment(db.Model):
     __tablename__ = 'comments'
     id = db.Column(db.Integer, primary_key=True)
