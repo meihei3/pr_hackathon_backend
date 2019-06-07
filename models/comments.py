@@ -3,11 +3,11 @@ from db import db
 
 
 # Model
-class Comment(db.Model):
+class Comments(db.Model):
     __tablename__ = 'comments'
     id = db.Column(db.Integer, primary_key=True)
-    company_id = db.Column(db.Integer)
-    post_id = db.Column(db.Integer)
+    company_id = db.Column(db.String())
+    release_id = db.Column(db.String())
     name = db.Column(db.String(80))
     text = db.Column(db.String())
     posted_at = db.Column(db.String())
@@ -15,19 +15,18 @@ class Comment(db.Model):
     def to_dict(self):
         return dict(
             company_id=self.company_id,
-            post_id=self.post_id,
+            release_id=self.release_id,
             name=self.name,
             text=self.text,
             poted_at=self.posted_at,
         )
 
-    def __init__(self, name, company_id, post_id, text, posted_at):
-        self.name = name
+    def __init__(self, company_id, release_id, name, text, posted_at):
         self.company_id = company_id
-        self.post_id = post_id
+        self.release_id = release_id
         self.name = name
         self.text = text
         self.posted_at = posted_at
 
     def __repr__(self):
-        return '<Model {}>'.format(self.name)
+        return '<Comment {}>'.format(self.name)
