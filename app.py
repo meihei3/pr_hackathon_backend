@@ -18,5 +18,10 @@ app.add_url_rule('/comments/<string:company_id>/<string:release_id>',
                  view_func=CommentController.as_view('comment_controller'))
 
 
+@app.route('/')
+def index():
+    return "hello"
+
+
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port=777, debug=True, threaded=True)
