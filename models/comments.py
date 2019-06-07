@@ -18,7 +18,7 @@ class Comments(db.Model):
             release_id=self.release_id,
             name=self.name,
             text=self.text,
-            poted_at=self.posted_at,
+            posted_at=self.posted_at,
         )
 
     def __init__(self, company_id, release_id, name, text, posted_at):
