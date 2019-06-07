@@ -1,5 +1,5 @@
 from flask import Flask
-from controllers.CommentsController import CommentController
+from controllers.comment_controller import CommentController
 from db import init_db
 
 
