@@ -2,8 +2,10 @@ from db import db
 
 
 class NGs(db.Model):
-    company_id = db.Column(db.String, unique=True)
-    ng_words = db.Column(db.String)
+    __tablename__ = 'ng_words'
+    id = db.Column(db.Integer, primary_key=True)
+    company_id = db.Column(db.String, unique=True, nullable=False)
+    ng_words = db.Column(db.String, nullable=False)
 
     def to_dict(self):
         return {
