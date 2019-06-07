@@ -21,7 +21,7 @@ class CommentController(MethodView):
         text = request.form["text"]
         name = request.form["name"]
         dt = datetime.now(pytz.timezone('Asia/Tokyo')).strftime('%Y-%m-%d %H:%M')
-        c = Comment(name, int(company_id), int(post_id), text, dt)
+        c = Comment(company_id=company_id, post_id=post_id, name=name, text=text, posted_at=dt)
         db.session.add(c)
         db.session.commit()
         return jsonify({'response': 'ok'})

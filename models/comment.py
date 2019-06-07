@@ -6,8 +6,8 @@ from db import db
 class Comment(db.Model):
     __tablename__ = 'comments'
     id = db.Column(db.Integer, primary_key=True)
-    company_id = db.Column(db.Integer)
-    post_id = db.Column(db.Integer)
+    company_id = db.Column(db.String())
+    post_id = db.Column(db.String())
     name = db.Column(db.String(80))
     text = db.Column(db.String())
     posted_at = db.Column(db.String())
@@ -21,8 +21,7 @@ class Comment(db.Model):
             poted_at=self.posted_at,
         )
 
-    def __init__(self, name, company_id, post_id, text, posted_at):
-        self.name = name
+    def __init__(self, company_id, post_id, name, text, posted_at):
         self.company_id = company_id
         self.post_id = post_id
         self.name = name
