@@ -14,7 +14,7 @@ def create_app():
 
 
 app = create_app()
-app.add_url_rule('/comments/<string:company_id>/<string:post_id>',
+app.add_url_rule('/comments/<string:company_id>/<string:release_id>',
                  view_func=CommentController.as_view('comment_controller'))
 
 
