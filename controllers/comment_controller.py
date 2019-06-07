@@ -20,8 +20,12 @@ class CommentController(MethodView):
         """
         :return: json
         """
-        text = request.form["text"]
-        name = request.form["name"]
+        text = request.form.get('text', "no-text")
+        name = request.form.get('name', "no-name")
+        if text == "no-text":
+            return jsonify({'response': 'no', "message": "textのデータがありません"})
+        elif name == "no-name":
+            return jsonify({'response': 'no', "message": "nameのデータがありません"})
         dt = datetime.now(pytz.timezone('Asia/Tokyo')).strftime('%Y-%m-%d %H:%M')
         c = Comments(company_id=company_id, release_id=release_id, name=name, text=text, posted_at=dt)
         db.session.add(c)

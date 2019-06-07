@@ -1,6 +1,7 @@
 from flask import Flask
 from controllers.comment_controller import CommentController
 from db import init_db
+from flask_cors import CORS
 
 
 # init flask app
@@ -9,6 +10,7 @@ def create_app():
     _app.config.from_object('config.Config')
 
     init_db(_app)
+    CORS(_app)
 
     return _app
 
